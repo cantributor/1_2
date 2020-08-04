@@ -13,5 +13,9 @@ object se2 {
     }
 
   // TODO
-  def extGetOrDefault[T](ot: Option[T], default: T): T = ???
+  def extGetOrDefault[T](ot: Option[T], default: T): T =
+    ot match {
+      case None        => default
+      case Some(value) => value
+    }
 }

@@ -6,4 +6,7 @@ object imm1 {
   val person = Person("John", "Doe", 33)
 
   // person.age += 1
+
+  val olderPerson = person.copy(age = person.age + 1)
+
 }

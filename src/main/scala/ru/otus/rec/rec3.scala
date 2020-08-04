@@ -1,5 +1,7 @@
 package ru.otus.rec
 
+import scala.annotation.tailrec
+
 object rec3 {
 
   sealed trait List[+T] {
@@ -9,5 +11,25 @@ object rec3 {
   final case class ::[+T](head: T, tail: List[T]) extends List[T]
   val Cons = ::
 
-  // reverse
+  val l = 1 :: 2 :: 3 :: Nil
+  // [1 -> 2 -> 3] l
+  // [] acc
+
+  // [2 -> 3]
+  // [1]
+
+  // [3]
+  // [2 -> 1]
+
+  // [] l
+  // [3 -> 2 -> 1] acc
+
+  @tailrec
+  def reverse[T](l: List[T], acc: List[T] = Nil): List[T] =
+    l match {
+      case Nil          => acc
+      case head :: tail => reverse(tail, head :: acc)
+    }
+
+  reverse(l)
 }

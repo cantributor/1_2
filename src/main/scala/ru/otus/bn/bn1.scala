@@ -16,4 +16,20 @@ object bn1 {
     2
   }
 
+  def extGetOrElse[T](ot: Option[T])(default: () => T): T =
+    ot match {
+      case None        => default()
+      case Some(value) => value
+    }
+
+  extGetOrElse(Some(1))(() => 0)
+
+  def extGetOrElse1[T](ot: Option[T])(default: => T): T =
+    ot match {
+      case None        => default
+      case Some(value) => value
+    }
+
+  extGetOrElse1(Some(1))(0)
+
 }

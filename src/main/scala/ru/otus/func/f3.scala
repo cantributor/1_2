@@ -25,5 +25,5 @@ object f3 {
 
   case class Person(firstName: String, lastName: String, age: Int)
 
-  val doeFamilyMember: (String, Int) => Person = ???
+  val doeFamilyMember: (String, Int) => Person = Person(_, "Doe", _)
 }
