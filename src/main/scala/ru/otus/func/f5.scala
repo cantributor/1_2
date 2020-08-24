@@ -39,5 +39,10 @@ object f5 {
       case Some(value) => Some(value + 1)
     }
 
-  // TODO: def mapOption
+  def mapOption[T, R](o: Option[T])(f: Function1[T, R]): Option[R] = {
+    o match {
+      case None        => None
+      case Some(value) => Some(f(value))
+    }
+  }
 }
